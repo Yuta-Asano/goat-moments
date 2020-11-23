@@ -339,6 +339,7 @@ table {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  color:black;
 }
 
 img,
@@ -691,6 +692,8 @@ form input[type="submit"] {
   -o-transition-timing-function: linear;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
+  font-size: large;
+  color: red;
 }
 
 .btn,
@@ -728,7 +731,7 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
 header.header {
   padding: 10px;
   border-bottom: 1px solid #D8D8D8;
-  background-color: #fff;
+  background-color: blue;
   position: fixed;
   top: 0;
   left: 0;
@@ -745,10 +748,13 @@ header.header div.header__bar.row h1.grid-6 {
   font-size: 20px;
   line-height: 41px;
   float: left;
+  
 }
 
 header.header div.header__bar.row h1.grid-6 a {
   display: block;
+  color: red;
+  font-size: xx-large;
 }
 
 header.header div.header__bar.row div.grid-6 {
