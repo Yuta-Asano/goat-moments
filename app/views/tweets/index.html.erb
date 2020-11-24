@@ -21,9 +21,23 @@
     </script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Unica+One&amp;subset=latin" media="all">
 
 
-   
+   <div class="contents row">
+    <% @tweets.each do |tweet| %>
+   <%= render partial: "tweet", locals: { tweet: tweet } %>
     
+    <% end %>
+   </div>
     
+    <div class='post-btn'>
+     <span class='purchase-btn-text'>投稿する</span>
+     <% if user_signed_in? %>
+      <a href="/tweets/new">
+     <% else %>
+      <a href="/users/sign_in">
+     <% end %>
+       <%= image_tag 'goat-moments.png' , size: '100x50' ,class: "post-btn-icon" %>
+      </a>
+    </div>
         <span class="page current">
   1
 </span>
