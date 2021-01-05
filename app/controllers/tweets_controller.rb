@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:edit, :show]
+  before_action :set_tweet, only: [:edit, :show, :update, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
@@ -11,20 +11,21 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
+    #binding.pry
+    @tweets = Tweet.create(tweet_params)
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
+    if @tweet.destroy
+      redirect_to root_path
+    end
   end
 
   def edit
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    tweet.update(tweet_params)
+    @tweet.update(tweet_params)
   end
 
   def show
@@ -33,12 +34,12 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tweets = Tweet.search(params[:keyword])
+    @tweet = Tweet.search(params[:keyword])
   end
 
   private
   def tweet_params
-    params.require(:tweet).permit(:image, :text).merge(user_id: current_user.id)
+    params.permit(:image, :text).merge(user_id: current_user.id)
   end
 
   def set_tweet

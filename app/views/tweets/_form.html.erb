@@ -1,3 +1,48 @@
-<%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_area :text, placeholder: "text", rows: "10" %>
-      <%= form.submit "SEND" %>
+<div class="tweets-contents">
+  
+  <%= form_with model: @tweet, url: tweets_path, local: true, multipart: true do |f| %>
+
+    <div class="tweets-main">
+      <div class="img-upload">
+       <div class="weight-bold-text">
+         投稿画像
+       </div>
+       <div class="click-upload">
+         <p>
+           クリックしてファイルをアップロード
+         </p>
+         <%= f.file_field :image, id:"posts-image" %>
+         <div id="image-list"></div>
+        </div>
+      </div>
+    
+   
+      <div class="new-posts">
+        <div class="posts-explain">
+          <div class="weight-bold-text">
+            投稿内容
+          </div>
+          <%= f.text_area :text, class:"posts-text", id:"post-info", placeholder:"text" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "投稿する" ,class:"sell-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+      
+
+     
