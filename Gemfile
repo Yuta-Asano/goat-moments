@@ -60,6 +60,14 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'devise'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 gem 'pry-rails'
 
-gem 'devise'
+gem 'rails-i18n'
+gem "aws-sdk-s3", require: false
+gem 'ransack'
+
+gem 'better_errors'
+gem 'binding_of_caller'
